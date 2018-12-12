@@ -12,5 +12,23 @@
 </head>
 <body>
 
+<script type="text/javascript">
+  geocode();
+
+  function geocode(){
+      var location = "22 Main St Boston MA";
+    axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
+      params:{
+        address: location,
+        key: "AIzaSyB1Vgxpr3gDaY6ZnQ-ffJF0Wn1aDDvd6y4"
+      }
+    }).then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+  }
+</script>
 </body>
 </html>
