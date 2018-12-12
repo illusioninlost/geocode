@@ -23,7 +23,13 @@
         key: "AIzaSyB1Vgxpr3gDaY6ZnQ-ffJF0Wn1aDDvd6y4"
       }
     }).then(function (response) {
+
     console.log(response);
+
+    //find lat and long
+    console.log(response.data.results[0].geometry.location)
+    //full address
+    console.log(response.data.results[0].formatted_address)
   })
   .catch(function (error) {
     console.log(error);
