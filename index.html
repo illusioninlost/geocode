@@ -11,6 +11,10 @@
   <title>My Geocode</title>
 </head>
 <body>
+  <div class="container">
+    <div id="results"></div>
+    </div>
+    <div id="note"></div>
 
 <script type="text/javascript">
   geocode();
@@ -27,9 +31,16 @@
     console.log(response);
 
     //find lat and long
-    console.log(response.data.results[0].geometry.location)
+    console.log(response.data.results[0].geometry.location);
     //full address
-    console.log(response.data.results[0].formatted_address)
+    var fullAddress = response.data.results[0].formatted_address;
+    var latitude = response.data.results[0].geometry.location.lat;
+    var longitude = response.data.results[0].geometry.location.lng;
+    var formatfullAddress = `<ul class="list-group"> <li class="list-group-item"> ${fullAddress } <br /> Latitude: ${latitude}
+    <br /> Longitude: ${longitude} </li> </ul>`;
+
+    //output
+    document.getElementById("results").innerHTML = formatfullAddress;
   })
   .catch(function (error) {
     console.log(error);
